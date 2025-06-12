@@ -8,7 +8,7 @@ import { Suspense } from "react";
 
 function LaptopScene() {
   const { scene } = useGLTF("/models/3d_clipart_webdev.glb");
-  return <primitive object={scene} scale={1.2} position={[0, -1.2, -1.5]} />;
+  return <primitive object={scene} scale={1.0} position={[0, -2.2, -1.5]} />;
 }
 
 export default function App() {
@@ -33,12 +33,17 @@ export default function App() {
         <h1>Hi, I'm Ananya 👋</h1>
         <p>Creative Developer | Tech Enthusiast | Lifelong Learner</p>
         <div className="socials">
-          <a href="https://github.com/ananyasinghz" target="_blank">
+          <a
+            href="https://github.com/ananyasinghz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaGithub />
           </a>
           <a
             href="https://linkedin.com/in/ananya-singh-21853628a"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <FaLinkedin />
           </a>
