@@ -7,7 +7,8 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Segoe UI", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;     
+  overflow-y: auto; 
 }
 
 .full-screen-container {
@@ -24,7 +25,7 @@ body {
   top: 0;
   left: 0;
   background-color: transparent !important;
-  z-index: 1;
+  z-index: 3;
 }
 
 .overlay-header {

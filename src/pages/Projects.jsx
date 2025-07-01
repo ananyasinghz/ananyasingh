@@ -1,4 +1,5 @@
 import "./Projects.css";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -62,8 +63,12 @@ export default function Projects() {
     <div className="projects-page">
       <h2>My Projects</h2>
       <div className="cards-grid">
-        {projects.map((p) => (
-          <a
+        {projects.map((p, i) => (
+          <motion.a
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            viewport={{ once: true }}
             key={p.name}
             href={p.url}
             target="_blank"
@@ -73,7 +78,7 @@ export default function Projects() {
           >
             <h3 style={{ color: p.color }}>{p.name}</h3>
             <p>{p.desc}</p>
-          </a>
+          </motion.a>
         ))}
       </div>
     </div>

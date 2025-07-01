@@ -4,26 +4,38 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
+import Loader from "./components/Loader";
+import FloatingIcons from "./components/FloatingIcons";
 
-function LaptopScene() {
-  const { scene } = useGLTF("/models/3d_clipart_webdev.glb");
-  return <primitive object={scene} scale={1.0} position={[0, -2.2, -1.5]} />;
+function LaptopScene({ onLoaded }) {
+  const { scene } = useGLTF("/models/3d_clipart_webdev.glb", true);
+
+  useEffect(() => {
+    if (onLoaded) onLoaded();
+  }, [onLoaded]);
+
+  return <primitive object={scene} scale={1.0} position={[0, -1.2, -1.5]} />;
 }
 
 export default function App() {
   const navigate = useNavigate();
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <div className="full-screen-container">
+      {!loaded && <Loader />}
+
       <Canvas className="canvas">
         <ambientLight intensity={0.5} />
         <directionalLight position={[2, 5, 2]} intensity={1.5} />
         <Suspense fallback={null}>
-          <LaptopScene />
+          <LaptopScene onLoaded={() => setLoaded(true)} />
         </Suspense>
         <OrbitControls enableZoom={false} />
       </Canvas>
+
+      <FloatingIcons />
 
       <motion.header
         initial={{ y: -100 }}
