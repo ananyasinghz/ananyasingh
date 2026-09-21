@@ -1,67 +1,83 @@
-.projects-page {
-  padding: 2rem 1rem;
+.archive-page {
   min-height: 100vh;
-  background: #101010;
-  color: #f0f0f0;
-  overflow-y: auto;
+  width: min(100% - 2.5rem, var(--max-width));
+  margin-inline: auto;
+  padding-block: var(--space-xl);
+  background: var(--bg);
+  color: var(--ink);
 }
 
-.projects-page h2 {
-  margin-bottom: 2rem;
-  font-size: 2.2rem;
-  text-align: center;
+.archive-header {
+  margin-bottom: var(--space-xl);
+  max-width: 36rem;
 }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.project-card {
-  background: #181818;
-  border-radius: 12px;
-  padding: 1.5rem;
+.archive-back {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-md);
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 245, 212, 0.15);
+.archive-back:hover {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.project-card h3 {
-  margin: 0 0 0.6rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+.archive-header h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: var(--space-sm);
 }
 
-.project-card p {
-  margin: 0;
+.archive-header p {
+  color: var(--ink-muted);
   font-size: 0.95rem;
-  line-height: 1.5;
-  color: #ccc;
 }
 
-@media (max-width: 600px) {
-  .projects-page {
-    padding: 1.5rem 1rem;
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive-list li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 14rem) 1fr;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.archive-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-list a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.archive-list a:hover {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.archive-list span {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 640px) {
+  .archive-page {
+    width: min(100% - 1.5rem, var(--max-width));
   }
 
-  .project-card {
-    padding: 1.2rem;
-  }
-
-  .project-card h3 {
-    font-size: 1.05rem;
-  }
-
-  .project-card p {
-    font-size: 0.88rem;
+  .archive-list li {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 }

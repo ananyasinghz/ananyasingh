@@ -1,0 +1,38 @@
+.outcomes {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--line);
+}
+
+.outcomes-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.outcome-value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.outcome-label {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  max-width: 16rem;
+}
+
+@media (max-width: 720px) {
+  .outcomes-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

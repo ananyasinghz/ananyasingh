@@ -1,0 +1,42 @@
+.contact {
+  border-top: 1px solid var(--line);
+  padding-bottom: var(--space-2xl);
+}
+
+.contact-copy {
+  max-width: 32rem;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-xl);
+}
+
+.contact-links a {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-sep {
+  color: var(--ink-faint);
+}
+
+.contact-foot {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}

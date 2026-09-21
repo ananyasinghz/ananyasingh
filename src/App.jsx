@@ -1,69 +1,24 @@
 import "./App.css";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect, Suspense } from "react";
-import Loader from "./components/Loader";
-import FloatingIcons from "./components/FloatingIcons";
-
-function LaptopScene({ onLoaded }) {
-  const { scene } = useGLTF("/models/3d_clipart_webdev.glb", true);
-
-  useEffect(() => {
-    if (onLoaded) onLoaded();
-  }, [onLoaded]);
-
-  return <primitive object={scene} scale={1.0} position={[0, -1.2, -1.5]} />;
-}
+import Nav from "./components/Nav";
+import HeroSection from "./components/HeroSection";
+import Outcomes from "./components/Outcomes";
+import FeaturedWork from "./components/FeaturedWork";
+import Experience from "./components/Experience";
+import Stack from "./components/Stack";
+import Contact from "./components/Contact";
 
 export default function App() {
-  const navigate = useNavigate();
-  const [loaded, setLoaded] = useState(false);
-
   return (
-    <div className="full-screen-container">
-      {!loaded && <Loader />}
-
-      <Canvas className="canvas">
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[2, 5, 2]} intensity={1.5} />
-        <Suspense fallback={null}>
-          <LaptopScene onLoaded={() => setLoaded(true)} />
-        </Suspense>
-        <OrbitControls enableZoom={false} />
-      </Canvas>
-
-      <FloatingIcons />
-
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="overlay-header"
-      >
-        <h1>Hi, I'm Ananya 👋</h1>
-        <p>Creative Developer | Tech Enthusiast | Lifelong Learner</p>
-        <div className="socials">
-          <a
-            href="https://github.com/ananyasinghz"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/ananya-singh-21853628a"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin />
-          </a>
-        </div>
-        <button className="mini-button" onClick={() => navigate("/projects")}>
-          See My Projects
-        </button>
-      </motion.header>
+    <div className="portfolio">
+      <Nav />
+      <main>
+        <HeroSection />
+        <Outcomes />
+        <FeaturedWork />
+        <Experience />
+        <Stack />
+        <Contact />
+      </main>
     </div>
   );
 }

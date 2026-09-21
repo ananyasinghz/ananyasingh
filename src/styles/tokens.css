@@ -1,0 +1,35 @@
+:root {
+  --bg: #1a1a18;
+  --bg-elevated: #222220;
+  --ink: #f2efe8;
+  --ink-muted: #a8a49a;
+  --ink-faint: #6e6a62;
+  --accent: #d4a574;
+  --accent-soft: rgba(212, 165, 116, 0.14);
+  --line: rgba(242, 239, 232, 0.1);
+  --grid: rgba(212, 165, 116, 0.06);
+
+  --font-display: "Syne", sans-serif;
+  --font-body: "Instrument Sans", sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --max-width: 72rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
